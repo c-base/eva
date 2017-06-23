@@ -13,13 +13,42 @@
         "EVA1": {
             "component": "c-base/eva",
             "metadata": {
-                "x": -108,
+                "x": -144,
                 "y": 72,
                 "width": 72,
                 "height": 72,
                 "label": "EVA1"
             }
+        },
+        "eva/threshold_eflid": {
+            "component": "eva/threshold",
+            "metadata": {
+                "label": "threshold",
+                "x": 0,
+                "y": 36,
+                "width": 72,
+                "height": 72
+            }
         }
     },
-    "connections": []
+    "connections": [
+        {
+            "src": {
+                "process": "EVA1",
+                "port": "lum"
+            },
+            "tgt": {
+                "process": "eva/threshold_eflid",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "data": 128,
+            "tgt": {
+                "process": "eva/threshold_eflid",
+                "port": "thresh"
+            }
+        }
+    ]
 }

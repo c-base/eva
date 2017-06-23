@@ -12,14 +12,27 @@ class threshold(msgflo.Participant):
         { 'id': 'thresh', 'type': 'int' },
       ],
       'outports': [
-        { 'id': 'out', 'type': 'object' },
+        { 'id': 'out', 'type': 'boolean' },
       ],
     }
     self.active = False
+    self.thresh = 255
     msgflo.Participant.__init__(self, d, role)
 
   def process(self, inport, msg):
-    self.send('out', msg.data)
+    if inport == 'thresh':
+      self.thresh = msg.data
+      
+    if inport == 'in':
+    	if self.active == True:
+          if msg.data < self.thresh:
+            self.send('out', False)
+            self.active = False
+        else:
+          if msg.data >= self.thresh:
+            self.send('out', True)
+            self.active = True
+            
     self.ack(msg)
 
 if __name__ == '__main__':
