@@ -24,8 +24,8 @@
             "component": "eva/threshold",
             "metadata": {
                 "label": "threshold",
-                "x": 0,
-                "y": 0,
+                "x": 396,
+                "y": 180,
                 "width": 72,
                 "height": 72
             }
@@ -34,8 +34,8 @@
             "component": "eva/logger",
             "metadata": {
                 "label": "logger",
-                "x": 144,
-                "y": 0,
+                "x": 540,
+                "y": 72,
                 "width": 72,
                 "height": 72
             }
@@ -44,18 +44,8 @@
             "component": "eva/blockchain",
             "metadata": {
                 "label": "blockchain",
-                "x": 72,
-                "y": 144,
-                "width": 72,
-                "height": 72
-            }
-        },
-        "eva/logger_nm71w": {
-            "component": "eva/logger",
-            "metadata": {
-                "label": "logger",
-                "x": 216,
-                "y": 144,
+                "x": -36,
+                "y": -108,
                 "width": 72,
                 "height": 72
             }
@@ -64,7 +54,7 @@
             "component": "eva/blockchain",
             "metadata": {
                 "label": "blockchain",
-                "x": 72,
+                "x": -36,
                 "y": 252,
                 "width": 72,
                 "height": 72
@@ -74,8 +64,8 @@
             "component": "eva/blockchain",
             "metadata": {
                 "label": "blockchain",
-                "x": 108,
-                "y": 360,
+                "x": -216,
+                "y": 252,
                 "width": 72,
                 "height": 72
             }
@@ -84,8 +74,28 @@
             "component": "eva/blockchain",
             "metadata": {
                 "label": "blockchain",
-                "x": -36,
-                "y": 324,
+                "x": -216,
+                "y": -108,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "eva/movavg_wsj1u": {
+            "component": "eva/movavg",
+            "metadata": {
+                "label": "movavg",
+                "x": 396,
+                "y": 72,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "eva/logger_9hugh": {
+            "component": "eva/logger",
+            "metadata": {
+                "label": "logger",
+                "x": 396,
+                "y": -36,
                 "width": 72,
                 "height": 72
             }
@@ -101,18 +111,9 @@
                 "process": "eva/threshold_eflid",
                 "port": "in"
             },
-            "metadata": {}
-        },
-        {
-            "src": {
-                "process": "eva/threshold_eflid",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "eva/logger_9gj2b",
-                "port": "in"
-            },
-            "metadata": {}
+            "metadata": {
+                "route": 2
+            }
         },
         {
             "src": {
@@ -123,18 +124,9 @@
                 "process": "eva/blockchain_kiuq7",
                 "port": "in"
             },
-            "metadata": {}
-        },
-        {
-            "src": {
-                "process": "eva/blockchain_kiuq7",
-                "port": "history"
-            },
-            "tgt": {
-                "process": "eva/logger_nm71w",
-                "port": "in"
-            },
-            "metadata": {}
+            "metadata": {
+                "route": 7
+            }
         },
         {
             "src": {
@@ -145,7 +137,9 @@
                 "process": "eva/blockchain_gt08x",
                 "port": "in"
             },
-            "metadata": {}
+            "metadata": {
+                "route": 6
+            }
         },
         {
             "src": {
@@ -156,7 +150,9 @@
                 "process": "eva/blockchain_pyel5",
                 "port": "in"
             },
-            "metadata": {}
+            "metadata": {
+                "route": 5
+            }
         },
         {
             "src": {
@@ -168,7 +164,44 @@
                 "port": "in"
             },
             "metadata": {
-                "route": 0
+                "route": 9
+            }
+        },
+        {
+            "src": {
+                "process": "EVA1",
+                "port": "lum"
+            },
+            "tgt": {
+                "process": "eva/movavg_wsj1u",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 5
+            }
+        },
+        {
+            "src": {
+                "process": "eva/movavg_wsj1u",
+                "port": "avg"
+            },
+            "tgt": {
+                "process": "eva/logger_9gj2b",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "EVA1",
+                "port": "lum"
+            },
+            "tgt": {
+                "process": "eva/logger_9hugh",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 4
             }
         },
         {
