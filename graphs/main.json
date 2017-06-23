@@ -29,6 +29,16 @@
                 "width": 72,
                 "height": 72
             }
+        },
+        "eva/logger_9gj2b": {
+            "component": "eva/logger",
+            "metadata": {
+                "label": "logger",
+                "x": 108,
+                "y": 0,
+                "width": 72,
+                "height": 72
+            }
         }
     },
     "connections": [
@@ -44,7 +54,18 @@
             "metadata": {}
         },
         {
-            "data": 128,
+            "src": {
+                "process": "eva/threshold_eflid",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "eva/logger_9gj2b",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "data": 55,
             "tgt": {
                 "process": "eva/threshold_eflid",
                 "port": "thresh"
