@@ -1,12 +1,243 @@
 {
-  "properties": {
-    "name": "main",
-    "environment": {
-      "type": "msgflo"
-    }
-  },
-  "processes": {},
-  "connections": [],
-  "inports": [],
-  "outports": []
+    "caseSensitive": false,
+    "properties": {
+        "name": "main",
+        "environment": {
+            "type": "msgflo"
+        }
+    },
+    "inports": {},
+    "outports": {},
+    "groups": [],
+    "processes": {
+        "EVA1": {
+            "component": "c-base/eva",
+            "metadata": {
+                "x": -144,
+                "y": 72,
+                "width": 72,
+                "height": 72,
+                "label": "EVA1"
+            }
+        },
+        "eva/threshold_eflid": {
+            "component": "eva/threshold",
+            "metadata": {
+                "label": "threshold",
+                "x": 396,
+                "y": 180,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "eva/logger_9gj2b": {
+            "component": "eva/logger",
+            "metadata": {
+                "label": "logger",
+                "x": 540,
+                "y": 72,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "eva/blockchain_kiuq7": {
+            "component": "eva/blockchain",
+            "metadata": {
+                "label": "blockchain",
+                "x": -36,
+                "y": -108,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "eva/blockchain_gt08x": {
+            "component": "eva/blockchain",
+            "metadata": {
+                "label": "blockchain",
+                "x": -36,
+                "y": 252,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "eva/blockchain_pyel5": {
+            "component": "eva/blockchain",
+            "metadata": {
+                "label": "blockchain",
+                "x": -216,
+                "y": 252,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "eva/blockchain_98nxz": {
+            "component": "eva/blockchain",
+            "metadata": {
+                "label": "blockchain",
+                "x": -216,
+                "y": -108,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "eva/movavg_wsj1u": {
+            "component": "eva/movavg",
+            "metadata": {
+                "label": "movavg",
+                "x": 396,
+                "y": 72,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "eva/logger_9hugh": {
+            "component": "eva/logger",
+            "metadata": {
+                "label": "logger",
+                "x": 396,
+                "y": -36,
+                "width": 72,
+                "height": 72
+            }
+        }
+    },
+    "connections": [
+        {
+            "src": {
+                "process": "EVA1",
+                "port": "lum"
+            },
+            "tgt": {
+                "process": "eva/threshold_eflid",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 2
+            }
+        },
+        {
+            "src": {
+                "process": "EVA1",
+                "port": "temp"
+            },
+            "tgt": {
+                "process": "eva/blockchain_kiuq7",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 7
+            }
+        },
+        {
+            "src": {
+                "process": "EVA1",
+                "port": "hall"
+            },
+            "tgt": {
+                "process": "eva/blockchain_gt08x",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 6
+            }
+        },
+        {
+            "src": {
+                "process": "EVA1",
+                "port": "cnt"
+            },
+            "tgt": {
+                "process": "eva/blockchain_pyel5",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 5
+            }
+        },
+        {
+            "src": {
+                "process": "EVA1",
+                "port": "lum"
+            },
+            "tgt": {
+                "process": "eva/blockchain_98nxz",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 9
+            }
+        },
+        {
+            "src": {
+                "process": "EVA1",
+                "port": "lum"
+            },
+            "tgt": {
+                "process": "eva/movavg_wsj1u",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 5
+            }
+        },
+        {
+            "src": {
+                "process": "eva/movavg_wsj1u",
+                "port": "avg"
+            },
+            "tgt": {
+                "process": "eva/logger_9gj2b",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "EVA1",
+                "port": "lum"
+            },
+            "tgt": {
+                "process": "eva/logger_9hugh",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 4
+            }
+        },
+        {
+            "data": 55,
+            "tgt": {
+                "process": "eva/threshold_eflid",
+                "port": "thresh"
+            }
+        },
+        {
+            "data": "temp",
+            "tgt": {
+                "process": "eva/blockchain_kiuq7",
+                "port": "name"
+            }
+        },
+        {
+            "data": "hall",
+            "tgt": {
+                "process": "eva/blockchain_gt08x",
+                "port": "name"
+            }
+        },
+        {
+            "data": "cnt",
+            "tgt": {
+                "process": "eva/blockchain_pyel5",
+                "port": "name"
+            }
+        },
+        {
+            "data": "lum",
+            "tgt": {
+                "process": "eva/blockchain_98nxz",
+                "port": "name"
+            }
+        }
+    ]
 }
