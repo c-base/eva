@@ -19,6 +19,7 @@ RUN apt-get update && apt-get install -y \
   python-dev \
   python-pip
 RUN pip install -r requirements.txt
+RUN pip install requests
 
 # Map the volumes
 VOLUME /var/app/graphs /var/app/components

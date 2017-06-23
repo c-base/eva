@@ -1,22 +1,22 @@
 {
-  "name": "msgflo-project",
+  "name": "eva",
   "version": "1.0.0",
-  "description": "Project template for MsgFlo",
+  "description": "Predictive maintenance for Cosmonauts on E.V.A.s with NB-IOT",
   "main": "index.js",
   "scripts": {
     "test": "mocha  --reporter spec spec/*.js",
-    "start": "./node_modules/.bin/msgflo --graph graphs/main.json --auto-save=true --runtime-id=e9c9fca9-c378-437b-98e4-97b556edbec1 --ping-interval=600 --componentdir components"
+    "start": "./node_modules/.bin/msgflo --graph graphs/main.json --auto-save=true --runtime-id=e9c9fca9-c378-437b-98e4-97b556edbec2 --ping-interval=600 --componentdir components"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/msgflo/msgflo-project.git"
+    "url": "git://github.com/c-base/eva.git"
   },
   "author": "Henri Bergius <henri.bergius@iki.fi>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/msgflo/msgflo-project/issues"
+    "url": "https://github.com/c-base/eva/issues"
   },
-  "homepage": "https://github.com/msgflo/msgflo-project#readme",
+  "homepage": "https://github.com/c-base/eva#readme",
   "dependencies": {
     "mqtt": "^2.9.0",
     "msgflo": "^0.10.26",
