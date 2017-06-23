@@ -25,7 +25,7 @@
             "metadata": {
                 "label": "threshold",
                 "x": 0,
-                "y": 36,
+                "y": 0,
                 "width": 72,
                 "height": 72
             }
@@ -34,7 +34,7 @@
             "component": "eva/logger",
             "metadata": {
                 "label": "logger",
-                "x": 108,
+                "x": 144,
                 "y": 0,
                 "width": 72,
                 "height": 72
