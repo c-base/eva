@@ -16,7 +16,7 @@ class threshold(msgflo.Participant):
       ],
     }
     self.active = False
-    self.thresh = 255
+    self.thresh = 150
     msgflo.Participant.__init__(self, d, role)
 
   def process(self, inport, msg):
@@ -25,11 +25,13 @@ class threshold(msgflo.Participant):
       
     if inport == 'in':
     	if self.active == True:
-          if msg.data < self.thresh:
+          # Above threshold again
+          if msg.data > self.thresh:
             self.send('out', False)
             self.active = False
         else:
-          if msg.data >= self.thresh:
+          # Warning!!
+          if msg.data <= self.thresh:
             self.send('out', True)
             self.active = True
             
