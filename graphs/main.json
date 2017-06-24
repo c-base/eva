@@ -255,7 +255,7 @@
             }
         },
         {
-            "data": 55,
+            "data": 150,
             "tgt": {
                 "process": "eva/threshold_eflid",
                 "port": "thresh"
